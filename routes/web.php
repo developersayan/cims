@@ -630,17 +630,85 @@ Route::get('complaint-evaluation-list/social-implication-details/{id}',[Evaluati
 
 // infomation-enrichment-list
 Route::get('information-enrichment-list',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'index'])->name('information.enrichment.list');
+Route::post('information-enrichment-list/update-report-decision',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'updateReportDecision'])->name('information.enrichment.list.update.report.decision');
 Route::get('information-enrichment-list/enrichment-view/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'view'])->name('information.enrichment.view');
+
+Route::get('information-enrichment-list/enrichment-view/ie-plan-details/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'ieDetailsChief'])->name('information.enrichment.view.ie-plan.details.chief');
+Route::get('information-enrichment-list/enrichment-view/ie-field-visit-details/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'feildDetailsChief'])->name('information.enrichment.view.feild-visit.details.chief');
+
+
+
 
 Route::get('information-enrichment-list/enrichment-view/assign-member/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'assginMember'])->name('information.enrichment.view.assgin.member');
 
 Route::post('information-enrichment-list/enrichment-view/assign-member/insert-team',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'assginMemberInsert'])->name('information.enrichment.view.assgin.member.insert');
+Route::get('information-enrichment-list/enrichment-view/assign-member/delete-team/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'assginMemberDelete'])->name('information.enrichment.view.assgin.member.delete');
+
+Route::post('information-enrichment-list/enrichment-view/insert-cec-members',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'insertCecMember'])->name('information.enrichment.view.insert.cec.member');
+Route::post('information-enrichment-list/enrichment-view/update-cec-members',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'updateCecMember'])->name('information.enrichment.view.update.cec.member');
+Route::get('information-enrichment-list/enrichment-view/delete-cec-members/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'deleteCecMember'])->name('information.enrichment.view.delete.cec.member');
+
+
+Route::post('information-enrichment-list/update-cec-status',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'updateCecStatus'])->name('information.enrichment.view.update.cec.status');
+Route::post('information-enrichment-list/update-com-status',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'updateComStatus'])->name('information.enrichment.view.update.com.status');
+
+// information-enrichment-cec-list
+Route::get('information-enrichment-list/cec-get-user-list',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'cecUserList'])->name('information.enrichment.get.user.list');
+Route::get('information-enrichment-list/cec-com-get-user-list/coi/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'cecUserListCoi'])->name('information.enrichment.get.user.list.coi');
+Route::post('information-enrichment-list/cec-get-user-list/coi/update-coi-decision',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'cecUserListCoiUpdate'])->name('information.enrichment.get.user.list.coi.update.decision');
+
+// information-enrichment-commission-list
+
+Route::get('information-enrichment-list/commission-get-user-list',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'comUserList'])->name('information.enrichment.get.user.list.commission.list');
+
+Route::get('information-enrichment-list/commission-get-user-list/view-details/{type}/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'ceccomUserListView'])->name('information.enrichment.get.user.list.cec.com.list.view');
+
 
 
 // information-enrichment-get-assign-list
 Route::get('information-enrichment-get-assign-list',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'getList'])->name('information.enrichment.get.list.assigned');
 Route::get('information-enrichment-get-assign-list/coi-status/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'coiStatus'])->name('information.enrichment.get.list.assigned.coi.status');
 Route::post('information-enrichment-get-assign-list/coi-status/update-decision',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'coiStatusUpdate'])->name('information.enrichment.get.list.assigned.coi.status.update.decision');
+Route::get('information-enrichment-get-assign-list/ie-plan/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'iePlan'])->name('information.enrichment.get.list.assigned.ie.plan.page');
+Route::post('information-enrichment-get-assign-list/ie-plan/insert-data',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'iePlanInsert'])->name('information.enrichment.get.list.assigned.ie.plan.page.insert.data');
+Route::post('information-enrichment-get-assign-list/ie-plan/update-data',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'iePlanupdate'])->name('information.enrichment.get.list.assigned.ie.plan.page.update.data');
+Route::get('information-enrichment-get-assign-list/ie-plan/delete-data/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'iePlandelete'])->name('information.enrichment.get.list.assigned.ie.plan.page.delete.data');
+
+Route::post('information-enrichment-get-assign-list/ie-plan/full-data-update/page',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'iePlanfullUpdate'])->name('information.enrichment.get.list.assigned.ie.plan.page.full.update.page.data');
+
+
+Route::get('information-enrichment-get-assign-list/ie-plan/update-activity-page/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'iePlanUpdatePage'])->name('information.enrichment.get.list.assigned.ie.update.page');
+
+Route::post('information-enrichment-get-assign-list/ie-plan/insert-person-contacted',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'iePlaninsertPersonContact'])->name('information.enrichment.get.list.assigned.ie.insert.person.contact');
+Route::post('information-enrichment-get-assign-list/ie-plan/update-person-contacted',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'iePlanupdatePersonContact'])->name('information.enrichment.get.list.assigned.ie.update.person.contact');
+Route::get('information-enrichment-get-assign-list/ie-plan/delete-person-contacted/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'iePlandeletePersonContact'])->name('information.enrichment.get.list.assigned.ie.delete.person.contact');
+
+
+Route::post('information-enrichment-get-assign-list/ie-plan/insert-document-contacted',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'iePlaninsertdocumentContact'])->name('information.enrichment.get.list.assigned.ie.insert.document.contact');
+Route::post('information-enrichment-get-assign-list/ie-plan/update-document-contacted',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'iePlanupdatedocumentContact'])->name('information.enrichment.get.list.assigned.ie.update.document.contact');
+
+
+
+Route::post('information-enrichment-get-assign-list/feild-plan/insert-data',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'feildPlanInsert'])->name('information.enrichment.get.list.assigned.feild.plan.page.insert.data');
+Route::post('information-enrichment-get-assign-list/feild-plan/update-data',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'feildPlanupdate'])->name('information.enrichment.get.list.assigned.feild.plan.page.update.data');
+Route::get('information-enrichment-get-assign-list/feild-plan/delete-data/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'feildPlandelete'])->name('information.enrichment.get.list.assigned.feild.plan.page.delete.data');
+
+
+
+Route::get('information-enrichment-get-assign-list/feild-plan/update-activity-page/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'fieldPlanUpdatePage'])->name('information.enrichment.get.list.assigned.field.update.page');
+
+Route::post('information-enrichment-get-assign-list/feild-plan/insert-person-contacted',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'fieldPlaninsertPersonContact'])->name('information.enrichment.get.list.assigned.field.insert.person.contact');
+Route::post('information-enrichment-get-assign-list/feild-plan/update-person-contacted',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'fieldPlanupdatePersonContact'])->name('information.enrichment.get.list.assigned.field.update.person.contact');
+Route::get('information-enrichment-get-assign-list/feild-plan/delete-person-contacted/{id}',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'fieldPlandeletePersonContact'])->name('information.enrichment.get.list.assigned.field.delete.person.contact');
+
+
+Route::post('information-enrichment-get-assign-list/feild-plan/insert-document-contacted',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'fieldPlaninsertdocumentContact'])->name('information.enrichment.get.list.assigned.field.insert.document.contact');
+Route::post('information-enrichment-get-assign-list/feild-plan/update-document-contacted',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'fieldPlanupdatedocumentContact'])->name('information.enrichment.get.list.assigned.field.update.document.contact');
+
+Route::post('information-enrichment-get-assign-list/feild-plan/full-data-update/page',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'feildPlanfullUpdate'])->name('information.enrichment.get.list.assigned.feild.plan.page.full.update.page.data');
+
+Route::post('information-enrichment-get-assign-list/update-final-report',[App\Http\Controllers\Complaint\InformationEnrichmentController::class,'updateFinalReport'])->name('information.enrichment.get.list.assigned.update.final.report');
+
 
 
 // legal-opinion-list
@@ -1216,6 +1284,83 @@ Route::get('review-complaint-assign-list/activity/{id}',[App\Http\Controllers\Re
 Route::post('review-complaint-assign-list/activity/insert-activity',[App\Http\Controllers\Review\ReviewController::class,'insertActivity'])->name('assign.review.complaint.listing.activity.insert');
 
 Route::get('review-complaint-assign-list/activity/delete-activity/{id}',[App\Http\Controllers\Review\ReviewController::class,'deleteActivity'])->name('assign.review.complaint.listing.activity.delete');
+
+
+// new-module-administrative-inquiry
+Route::get('administrative-inquiry-plan-chief',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'index'])->name('administrative.inquiry.plan.chief.list');
+
+Route::get('administrative-inquiry-plan-chief/add-officials/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'addOfficials'])->name('administrative.inquiry.plan.chief.add.officials.page');
+Route::post('administrative-inquiry-plan-chief/add-officials/insert-data',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'addOfficialsInsert'])->name('administrative.inquiry.plan.chief.add.officials.page.insert.data');
+Route::get('administrative-inquiry-plan-chief/add-officials/delete-data/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'addOfficialsdelete'])->name('administrative.inquiry.plan.chief.add.officials.page.delete.data');
+
+Route::get('administrative-inquiry-plan-chief/view-details/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewDetailsChief'])->name('administrative.inquiry.plan.chief.list.view.details.chief');
+Route::post('administrative-inquiry-plan-chief/view-details/update-report-decision',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'updateReportChief'])->name('administrative.inquiry.plan.chief.list.view.details.update.report.decision');
+
+Route::get('administrative-inquiry-plan-chief/view-details/desk-review-view-details/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'deskReviewViewChief'])->name('administrative.inquiry.plan.chief.list.view.details.desk.review.view.page.chief');
+
+Route::get('administrative-inquiry-plan-chief/view-details/feild-visit-view-details/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'feildVisitViewChief'])->name('administrative.inquiry.plan.chief.list.view.details.feild.visit.view.page.chief');
+
+Route::post('administrative-inquiry-plan-chief/view-details/insert-inquiry-member',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'insertInquiryMember'])->name('administrative.inquiry.plan.chief.list.view.details.chief.insert.inquiry.member');
+Route::post('administrative-inquiry-plan-chief/view-details/update-inquiry-member',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'updateInquiryMember'])->name('administrative.inquiry.plan.chief.list.view.details.chief.update.inquiry.member');
+Route::get('administrative-inquiry-plan-chief/view-details/delete-inquiry-member/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'deleteInquiryMember'])->name('administrative.inquiry.plan.chief.list.view.details.chief.delete.inquiry.member');
+
+Route::post('administrative-inquiry-plan-chief/view-details/update-inquiry-meeting-decision',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'updateInquiryMeetinDecision'])->name('administrative.inquiry.plan.chief.list.view.details.update.inquiry.meeting.decision');
+
+Route::post('administrative-inquiry-plan-chief/view-details/update-commission-meeting-decision',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'updateCommissionMeetinDecision'])->name('administrative.inquiry.plan.chief.list.view.details.update.commission.meeting.decision');
+
+
+// get-administrative-inquiry-committee-complaint
+
+Route::get('get-administrative-inquiry-committee-complaint',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'getCommitteList'])->name('administrative.inquiry.committe.get.list.page');
+Route::get('get-administrative-inquiry-committee-complaint/coi/{type}/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'getCommitteListCoiPage'])->name('administrative.inquiry.committe.get.list.page.coi.page');
+Route::post('get-administrative-inquiry-committee-complaint/coi/update-decision',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'getCommitteListCoiUpdate'])->name('administrative.inquiry.committe.get.list.page.coi.page.update.decision');
+Route::get('get-administrative-inquiry-committee-complaint/view-details-page/{type}/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewDetailsPanel'])->name('administrative.inquiry.committe.get.list.page.view.details.page');
+
+// get-administrative-inquiry-commission-complaint
+Route::get('get-administrative-inquiry-commission-complaint',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'getCommissionList'])->name('administrative.commission.list.committe.get.list.page');
+
+
+// get-official-panel-administrative-inquiry-plan-list (Official-one )
+
+Route::get('get-official-panel-administrative-inquiry-plan-list',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'getList'])->name('administrative.inquiry.plan.official.get.list');
+Route::get('get-official-panel-administrative-inquiry-plan-list/coi-status/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'getListCoiPage'])->name('administrative.inquiry.plan.official.get.list.coi.page');
+Route::post('get-official-panel-administrative-inquiry-plan-list/coi-status/update-decision',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'getListCoiPageUpdateDecision'])->name('administrative.inquiry.plan.official.get.list.coi.page.update.decision');
+
+Route::get('get-official-panel-administrative-inquiry-plan-list/view-details/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'officialView'])->name('administrative.inquiry.plan.official.get.list.view.details');
+
+Route::post('get-official-panel-administrative-inquiry-plan-list/view-details/update-report-submission',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'updateReportSubmission'])->name('administrative.inquiry.plan.official.get.list.view.details.update.report.submission');
+
+Route::post('get-official-panel-administrative-inquiry-plan-list/insert-desk-review',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'insertDeskReview'])->name('administrative.inquiry.plan.official.get.list.view.details.insert.desk.review');
+Route::post('get-official-panel-administrative-inquiry-plan-list/update-desk-review',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'updateDeskReview'])->name('administrative.inquiry.plan.official.get.list.view.details.update.desk.review');
+Route::get('get-official-panel-administrative-inquiry-plan-list/delete-desk-review/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'deleteDeskReview'])->name('administrative.inquiry.plan.official.get.list.view.details.delete.desk.review');
+
+Route::post('get-official-panel-administrative-inquiry-plan-list/insert-feild-visit',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'insertFeildVisit'])->name('administrative.inquiry.plan.official.get.list.view.details.insert.felid.visit');
+
+Route::post('get-official-panel-administrative-inquiry-plan-list/update-feild-visit',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'updateFeildVisit'])->name('administrative.inquiry.plan.official.get.list.view.details.update.felid.visit');
+
+Route::get('get-official-panel-administrative-inquiry-plan-list/delete-feild-visit/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'deleteFeildVisit'])->name('administrative.inquiry.plan.official.get.list.view.details.delete.felid.visit');
+
+// view-desk-review-page
+Route::get('get-official-panel-administrative-inquiry-plan-list/view-desk-review/update-page/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewDeskReviewUpdate'])->name('administrative.inquiry.plan.official.get.list.view.details.view.desk.review.update.page');
+Route::post('get-official-panel-administrative-inquiry-plan-list/view-desk-review/update-page/insert-person-contacted',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewDeskReviewInsertPerContact'])->name('administrative.inquiry.plan.official.get.list.view.details.review.update.page.insert.person.contact');
+Route::post('get-official-panel-administrative-inquiry-plan-list/view-desk-review/update-page/update-person-contacted',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewDeskReviewupdatePerContact'])->name('administrative.inquiry.plan.official.get.list.view.details.review.update.page.update.person.contact');
+Route::get('get-official-panel-administrative-inquiry-plan-list/view-desk-review/update-page/delete-person-contacted/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewDeskReviewdeletePerContact'])->name('administrative.inquiry.plan.official.get.list.view.details.review.delete.page.delete.person.contact');
+Route::post('get-official-panel-administrative-inquiry-plan-list/view-desk-review/update-page/insert-document-contacted',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewDeskReviewInsertDocument'])->name('administrative.inquiry.plan.official.get.list.view.details.review.update.page.insert.document.collected');
+Route::post('get-official-panel-administrative-inquiry-plan-list/view-desk-review/update-page/delete-document-contacted',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewDeskReviewdeleteDocument'])->name('administrative.inquiry.plan.official.get.list.view.details.review.update.page.delete.document.collected');
+Route::post('get-official-panel-administrative-inquiry-plan-list/view-desk-review/update-desk-review-full',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewDeskReviewFullUpdate'])->name('administrative.inquiry.plan.official.get.list.view.details.review.update.page.update.full.page');
+
+// view-feild-page-update
+
+Route::get('get-official-panel-administrative-inquiry-plan-list/view-feild-page/update-page/{id}',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewFeildPageUpdate'])->name('administrative.inquiry.plan.official.get.list.view.details.view.feild.page.update.view');
+
+Route::post('get-official-panel-administrative-inquiry-plan-list/view-feild-page/insert-person-contacted',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewFeildPageUpdateInsertPerson'])->name('administrative.inquiry.plan.official.get.list.view.details.view.feild.page.update.view.insert.person.contact');
+Route::post('get-official-panel-administrative-inquiry-plan-list/view-feild-page/update-person-contacted',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewFeildPageUpdateupdatePerson'])->name('administrative.inquiry.plan.official.get.list.view.details.view.feild.page.update.view.update.person.contact');
+Route::get('get-official-panel-administrative-inquiry-plan-list/view-feild-page/delete-person-contacted',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewFeildPagedeletedeletePerson'])->name('administrative.inquiry.plan.official.get.list.view.details.view.feild.page.delete.view.delete.person.contact');
+
+Route::post('get-official-panel-administrative-inquiry-plan-list/view-feild-page/insert-document-contacted',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewFeildPageUpdateInsertDocument'])->name('administrative.inquiry.plan.official.get.list.view.details.view.feild.page.update.view.insert.document.collected');
+Route::post('get-official-panel-administrative-inquiry-plan-list/view-feild-page/update-document-contacted',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewFeildPageUpdateupdateDocument'])->name('administrative.inquiry.plan.official.get.list.view.details.view.feild.page.update.view.update.document.collected');
+
+Route::post('get-official-panel-administrative-inquiry-plan-list/view-feild-page/update-feild-page-full',[App\Http\Controllers\AdminInquiry\AdminInquiryController::class,'viewFeildPgaeFullUpdate'])->name('administrative.inquiry.plan.official.get.list.view.details.feild.review.update.fullpage');
 
 
 
@@ -2315,9 +2460,9 @@ Route::get('tactical-inteligence-authorization-individual/delete-activity/{id}',
 
 
 // commission-directives-activity
-Route::any('tactical-inteligence-authorization-individual/commission-directives/activity/{id}',[App\Http\Controllers\Ti\TackticalDataSubmission::class,'commissionDirectivesActivity'])->name('tacktical.inteligence.autorization.individual.commission.directives.page.activity');
+Route::get('tactical-inteligence-authorization-individual/commission-directives/activity/{id}',[App\Http\Controllers\Ti\TackticalDataSubmission::class,'commissionDirectivesActivity'])->name('tacktical.inteligence.autorization.individual.commission.directives.page.activity');
 
-Route::post('tactical-inteligence-authorization-individual/commission-directives/activity/insert-data',[App\Http\Controllers\Ti\TackticalDataSubmission::class,'commissionDirectivesActivityInsert'])->name('tacktical.inteligence.autorization.individual.commission.directives.page.activity.insert.data');
+Route::post('tactical-inteligence-authorization-individual/commission-directives/activity/insert-data-data',[App\Http\Controllers\Ti\TackticalDataSubmission::class,'commissionDirectivesActivityInsert'])->name('tacktical.inteligence.autorization.individual.commission.directives.page.activity.insert.data.data');
 Route::post('tactical-inteligence-authorization-individual/commission-directives/activity/update-data',[App\Http\Controllers\Ti\TackticalDataSubmission::class,'commissionDirectivesActivityupdate'])->name('tacktical.inteligence.autorization.individual.commission.directives.page.activity.update.data');
 
 
@@ -2432,6 +2577,12 @@ Route::post('cec-user-addition-menu/delete-user/{id}',[App\Http\Controllers\CecC
 // com-user-addtion
 Route::get('commission-user-addition-menu',[App\Http\Controllers\CecCom\CrudController::class,'indexCom'])->name('com.user.addition.menu.index');
 Route::post('commission-user-addition-menu/insert-user',[App\Http\Controllers\CecCom\CrudController::class,'insertUserCommission'])->name('com.user.addition.menu.index.insert.user');
+
+
+// administrative-inquiry-committee
+Route::get('administrative-inquiry-committee-list',[App\Http\Controllers\Administrative\AdminInquiryComController::class,'index'])->name('admistrative.inquiry.committee.list');
+Route::post('administrative-inquiry-committee-list/insert-user',[App\Http\Controllers\Administrative\AdminInquiryComController::class,'insert'])->name('admistrative.inquiry.committee.list.insert.data');
+Route::get('administrative-inquiry-committee-list/delete-user/{id}',[App\Http\Controllers\Administrative\AdminInquiryComController::class,'delete'])->name('admistrative.inquiry.committee.list.delete.data');
 
 
 // appraise-sheet-documentation

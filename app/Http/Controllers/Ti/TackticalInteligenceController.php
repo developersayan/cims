@@ -293,7 +293,7 @@ class TackticalInteligenceController extends Controller
             'email'=>$user_details->email,
             'type'=>'Tacktical Inteligence',
         ];
-        Mail::send(new AssignGmail($data));
+        // Mail::send(new AssignGmail($data));
         Alert::success('You\'ve Successfully Added A Member');
         return Redirect::back();
     }

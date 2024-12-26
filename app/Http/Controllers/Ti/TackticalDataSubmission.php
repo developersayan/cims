@@ -1037,17 +1037,17 @@ class TackticalDataSubmission extends Controller
     public function commissionDirectivesActivity(Request $request,$id)
     {
         $data = [];
-        $check = TackticalMember::where('user_id',auth()->user()->id)->where('tacktical_id',$id)->first();
-        if (@$check=="") {
-            Alert::error('Unauthorized Access');
-            return redirect()->route('dashboard');
-        }
+        // $check = TackticalMember::where('user_id',auth()->user()->id)->where('tacktical_id',$id)->first();
+        // if (@$check=="") {
+        //     Alert::error('Unauthorized Access');
+        //     return redirect()->route('dashboard');
+        // }
         $data['id'] = $id;
-        if(@$request->com_id){
-            $data['decision'] = TiCommissionActivity::where('ti_id',$id)->where('com_id',$request->com_id)->where('created_by',auth()->user()->id)->get();
-        }else{
+        // if(@$request->com_id){
+        //     $data['decision'] = TiCommissionActivity::where('ti_id',$id)->where('com_id',$request->com_id)->where('created_by',auth()->user()->id)->get();
+        // }else{
             $data['decision'] = TiCommissionActivity::where('ti_id',$id)->where('created_by',auth()->user()->id)->get();
-        }
+        // }
         
         $data['users'] = User::where('is_delete',0)->get();
         $data['directives'] = TackticalCommissionDirective::where('ti_id',$id)->get();

@@ -22,10 +22,16 @@
         <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
         <li class="nav-item">
           <a class="nav-link active btn btn-info" href="#">Assign Member</a>
+
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link btn " href="{{route('administrative.inquiry.plan.chief.list')}}">Back To Menu</a>
+         
         </li>
         
         
-
+ 
         
       </ul>
 
@@ -38,14 +44,16 @@
 
                 <div class="col-sm-12">
                     <div class="card">
-                    <p><b>Complaint No:</b> {{@$complaint->complaintRegNo}}</p>
+                    <p><b>Complaint No:</b> {{@$complaint->eve_offence_details->complaint_details->complaintRegNo}}</p>
 
-                    <p><b>Complaint TItle:</b> {{@$complaint->complaintTitle}}</p>
+                    <p><b>Complaint TItle:</b> {{@$complaint->eve_offence_details->complaint_details->complaintTitle}}</p>
 
-                    <p><b>Date Time:</b> {{@$complaint->complaintDateTime}}</p>
+                    <p><b>Date Time:</b> {{@$complaint->eve_offence_details->complaint_details->complaintDateTime}}</p>
 
-                    <p><b>Offence Name :</b> {{@$offence_details->allegation_name}}</p>
-                    <p><b>Offence Description :</b> {{@$offence_details->allegation_description}}</p>
+                    <p><b>Offence Name :</b> {{@$complaint->eve_offence_details->allegation_name}}</p>
+                    <p><b>Offence Description :</b> {{@$complaint->eve_offence_details->allegation_description}}</p>
+
+
                    
 
                     
@@ -79,8 +87,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(@$data->isNotEmpty())
-                                    @foreach(@$data as $att)
+                                    @if(@$team->isNotEmpty())
+                                    @foreach(@$team as $att)
                                     <tr>
                                         
                                         <td>{{ $att->user_details->name }}</td>
@@ -89,8 +97,8 @@
                                         <td>@if(@$att->coi_status=="Y") Yes @elseif(@$att->coi_status=="N") No @else Awating Approval @endif</td>
                                         <td>{{ @$att->describe_coi }}</td>
                                         <td>
-                                              @if(@$att->coi_status=="Y" || @$att->coi_status=="Y")
-                                              <a class="btn btn-xs btn-danger" href="{{route('information.enrichment.view.assgin.member.delete',['id'=>@$att->id])}}" onclick="return confirm('Are you sure , you want to delete this  ? ')"><i class="fa fa-trash"></i>
+                                              @if(@$att->coi_status=="Y" || @$att->coi_status=="AA")
+                                              <a class="btn btn-xs btn-danger" href="{{route('administrative.inquiry.plan.chief.add.officials.page.delete.data',['id'=>@$att->id])}}" onclick="return confirm('Are you sure , you want to delete this  ? ')"><i class="fa fa-trash"></i>
                                                                 Delete
                                                </a>
                                                @endif
@@ -109,9 +117,9 @@
         </div>
 
 
-        <form method="post" action="{{route('information.enrichment.view.assgin.member.insert')}}" enctype="multipart/form-data">
+        <form method="post" action="{{route('administrative.inquiry.plan.chief.add.officials.page.insert.data')}}" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="ir_id" value="{{@$id}}">
+            <input type="hidden" name="appraise_id" value="{{@$id}}">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">

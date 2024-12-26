@@ -16,7 +16,7 @@ href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTabl
                 
                 
                 <div class="card card-primary card-outline card-outline-tabs">
-                    <div class="card-header" style="font-family:Product Sans"> Information Enrichment </div>
+                    <div class="card-header" style="font-family:Product Sans"> Information Enrichment Commission </div>
                         <div class = "card-body">
                             <table id  = "maintable" class="table" >
                                 <thead>
@@ -43,14 +43,12 @@ href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTabl
                                                
 
                                                
-                                               {{-- <a href="{{route('complaint.complete.details.full',['id'=>@$value->information_details->complaint_details->complaintID])}}" class="btn btn-info" target="_blank">Complaint Details</a> --}}
-                                                
                                                @if(@$value->coi_status=="AA")
-                                               <a href="{{route('information.enrichment.get.list.assigned.coi.status',['id'=>@$value->id])}}" class="btn btn-warning">COI</a>
+                                               <a href="{{route('information.enrichment.get.user.list.coi',['id'=>@$value->id])}}" class="btn btn-warning">COI</a>
 
                                                @else
 
-                                               <a href="{{route('information.enrichment.get.list.assigned.ie.plan.page',['id'=>@$value->id])}}" class="btn btn-danger">IE Plan</a>
+                                               <a href="{{route('information.enrichment.get.user.list.cec.com.list.view',['type'=>'com','id'=>@$value->id])}}" class="btn btn-danger">View</a>
                                                @endif
 
                                                

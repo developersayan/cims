@@ -38,6 +38,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        
                                         <td>{{ @$data->si_ig_no}}</td>
                                         <td>{{ @$data->request_type_details->name }}</td>
                                         <td>{{ @$data->relation_to }}</td>
@@ -64,7 +65,7 @@
                                                             </a>
 
                                             @endif
-                                                            
+                                                           
                                                             
                                                             
                                         </td>

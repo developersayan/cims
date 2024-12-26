@@ -165,7 +165,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <form method="post" action="{{route('tacktical.inteligence.autorization.individual.commission.directives.page.activity.insert.data')}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('tacktical.inteligence.autorization.individual.commission.directives.page.activity.insert.data.data')}}" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="ip_id" value="{{@$id}}">
 

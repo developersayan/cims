@@ -258,7 +258,16 @@
                 <li class="nav-item">
                     <a href="{{ route('information.enrichment.list') }}" class="nav-link">
                        <i class="fa fa-ravelry" aria-hidden="true"></i>
-                            <p>Information Enrichment</p>
+                            <p>Information Enrichment Chief</p>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('information.enrichment.get.list.assigned') }}" class="nav-link">
+                       <i class="fa fa-ravelry" aria-hidden="true"></i>
+                            <p>Information Enrichment Official</p>
                     </a>
                 </li>
             </ul>
@@ -346,6 +355,15 @@
                     </a>
                 </li>
             </ul>
+
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('information.enrichment.get.user.list') }}" class="nav-link">
+                       <i class="fa-sharp fa-light fa-user"></i>
+                            <p>Information Enrichment CEC</p>
+                    </a>
+                </li>
+            </ul>
             @endif
 
             @if(@$commission_cases && @$commission_cases->view_option=="Y")
@@ -354,6 +372,15 @@
                     <a href="{{ route('commision.cases.list') }}" class="nav-link">
                        <i class="fa-sharp fa-light fa-user"></i>
                             <p>Commission Cases</p>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('information.enrichment.get.user.list.commission.list') }}" class="nav-link">
+                       <i class="fa-sharp fa-light fa-user"></i>
+                            <p>Information Enrichment Commission</p>
                     </a>
                 </li>
             </ul>
@@ -404,6 +431,43 @@
             @endif
 
             @if(@$appraise_review && @$appraise_review->view_option=="Y")
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('administrative.inquiry.plan.chief.list') }}" class="nav-link">
+                       <i class="fa-sharp fa-light fa-user"></i>
+                            <p>Inquiry Plan (Chief)</p>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('administrative.inquiry.plan.official.get.list') }}" class="nav-link">
+                       <i class="fa-sharp fa-light fa-user"></i>
+                            <p>Inquiry Plan (Official)</p>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('administrative.inquiry.committe.get.list.page') }}" class="nav-link">
+                       <i class="fa-sharp fa-light fa-user"></i>
+                            <p>Administrative Inquiry Complaint</p>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('admistrative.inquiry.committee.list') }}" class="nav-link">
+                       <i class="fa-sharp fa-light fa-user"></i>
+                            <p>Administrative Inquiry Official Add</p>
+                    </a>
+                </li>
+            </ul>
+
+
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
                     <a href="{{ route('appraise.director.review.list') }}" class="nav-link">

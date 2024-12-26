@@ -339,6 +339,9 @@ class EvaluationController extends Controller
                     $new->start_date = $request->com_date;
                     $new->status = 'COM';
                     $new->com_decision = 'AP';
+                    $new->complaint_id = $request->complaintID;
+                    $new->offence_allegation = $value['id'];
+                    $new->tacktical_from = 'COM';
                     $new->save();
                     $upd = [];
                     $upd['si_ig_no'] = 'IG-00'.$new->id.'/'.date('Y');
